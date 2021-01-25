@@ -16,12 +16,27 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class BoatController extends AbstractController
 {
+    const NORTH = "N";
+    const SOUTH = "S";
+    const EAST = "E";
+    const WEST = "W";
+
+    const DIRECTIONS = [
+        self::NORTH,
+        self::SOUTH,
+        self::EAST,
+        self::WEST,
+    ];
 
     /**
      * Move the boat to coord x,y
      * @Route("/move/{x}/{y}", name="moveBoat", requirements={"x"="\d+", "y"="\d+"}))
      */
-    public function moveBoat(int $x, int $y, BoatRepository $boatRepository, EntityManagerInterface $em) :Response
+    public function moveBoat(
+        int $x, 
+        int $y, BoatRepository $boatRepository, 
+        EntityManagerInterface $em
+    ) :Response
     {
         $boat = $boatRepository->findOneBy([]);
         $boat->setCoordX($x);
@@ -29,6 +44,40 @@ class BoatController extends AbstractController
 
         $em->flush();
 
+        return $this->redirectToRoute('map');
+    }
+
+    /**
+     * @Route("/direction/{direction}", name="moveDirectionBoat")
+     */
+    public function moveDirection(
+        string $direction, 
+        BoatRepository $boatRepository, 
+        EntityManagerInterface $em
+    ): Response
+    {
+        if(!in_array($direction, self::DIRECTIONS)) {
+            throw $this->createNotFoundException('insert valid direction');
+        }
+
+        $boat = $boatRepository->findOneBy([]);
+
+        switch ($direction) {
+            case self::NORTH:
+                $boat->setCoordY($boat->getCoordY()-1);
+                break;
+            case self::SOUTH:
+                $boat->setCoordY($boat->getCoordY()+1);
+                break;
+            case self::EAST:
+                $boat->setCoordX($boat->getCoordX()+1);
+                break;
+            case self::WEST:
+                $boat->setCoordX($boat->getCoordX()-1);
+                break;
+        }
+
+        $em->flush();
         return $this->redirectToRoute('map');
     }
 
