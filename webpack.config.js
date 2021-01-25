@@ -14,17 +14,6 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
-    // folder pictures
-    .copyFiles({
-        from: './assets/pictures',
-            // optional target path, relative to the output dir
-            to: 'pictures/[path][name].[ext]',
-            // if versioning is enabled, add the file hash too
-            //to: 'images/[path][name].[hash:8].[ext]',
-            // only copy files matching this pattern
-            //pattern: /\.(png|jpg|jpeg)$/
-        })
-
     /*
      * ENTRY CONFIG
      *

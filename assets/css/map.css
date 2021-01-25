@@ -52,15 +52,15 @@
 }
 
 .sea {
-    background-image: url('../pictures/sea.png');
+    background-image: url('../images/sea.png');
 }
 
 .port {
-    background-image: url('../pictures/port.png');
+    background-image: url('../images/port.png');
 }
 
 .island {
-    background-image: url('../pictures/island.png');
+    background-image: url('../images/island.png');
 }
 
 @keyframes myBoat {
@@ -82,7 +82,7 @@
 }
 
 .map {
-    background-image: url('../pictures/map.jpg');
+    background-image: url('../images/map.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 1em;
@@ -90,7 +90,7 @@
 }
 
 .navigation {
-    background-image: url('../pictures/compass.png');
+    background-image: url('../images/compass.png');
     background-size: cover;
     width: 100%;
     height: 300px;
@@ -99,7 +99,7 @@
 }
 
 .infos {
-    background-image: url('../pictures/map.jpg');
+    background-image: url('../images/map.jpg');
     width: 100%;
     min-height: 300px;
     margin-top: 1em;
