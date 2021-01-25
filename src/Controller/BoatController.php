@@ -5,23 +5,45 @@ namespace App\Controller;
 use App\Entity\Boat;
 use App\Form\BoatType;
 use App\Repository\BoatRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/boat')]
+/**
+ * @Route("/boat")
+ */
 class BoatController extends AbstractController
 {
-    #[Route('/', name: 'boat_index', methods: ['GET'])]
-    public function index(BoatRepository $boatRepository): Response
+
+    /**
+     * Move the boat to coord x,y
+     * @Route("/move/{x}/{y}", name="moveBoat", requirements={"x"="\d+", "y"="\d+"}))
+     */
+    public function moveBoat(int $x, int $y, BoatRepository $boatRepository, EntityManagerInterface $em) :Response
     {
-        return $this->render('boat/index.html.twig', [
-            'boats' => $boatRepository->findAll(),
-        ]);
+        $boat = $boatRepository->findOneBy([]);
+        $boat->setCoordX($x);
+        $boat->setCoordY($y);
+
+        $em->flush();
+
+        return $this->redirectToRoute('map');
     }
 
-    #[Route('/new', name: 'boat_new', methods: ['GET', 'POST'])]
+
+    /**
+     * @Route("/", name="boat_index", methods="GET")
+     */
+    public function index(BoatRepository $boatRepository): Response
+    {
+        return $this->render('boat/index.html.twig', ['boats' => $boatRepository->findAll()]);
+    }
+
+    /**
+     * @Route("/new", name="boat_new", methods="GET|POST")
+     */
     public function new(Request $request): Response
     {
         $boat = new Boat();
@@ -29,9 +51,9 @@ class BoatController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($boat);
-            $entityManager->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($boat);
+            $em->flush();
 
             return $this->redirectToRoute('boat_index');
         }
@@ -42,15 +64,17 @@ class BoatController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'boat_show', methods: ['GET'])]
+    /**
+     * @Route("/{id}", name="boat_show", methods="GET")
+     */
     public function show(Boat $boat): Response
     {
-        return $this->render('boat/show.html.twig', [
-            'boat' => $boat,
-        ]);
+        return $this->render('boat/show.html.twig', ['boat' => $boat]);
     }
 
-    #[Route('/{id}/edit', name: 'boat_edit', methods: ['GET', 'POST'])]
+    /**
+     * @Route("/{id}/edit", name="boat_edit", methods="GET|POST")
+     */
     public function edit(Request $request, Boat $boat): Response
     {
         $form = $this->createForm(BoatType::class, $boat);
@@ -59,7 +83,7 @@ class BoatController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('boat_index');
+            return $this->redirectToRoute('boat_index', ['id' => $boat->getId()]);
         }
 
         return $this->render('boat/edit.html.twig', [
@@ -68,13 +92,15 @@ class BoatController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'boat_delete', methods: ['DELETE'])]
+    /**
+     * @Route("/{id}", name="boat_delete", methods="DELETE")
+     */
     public function delete(Request $request, Boat $boat): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$boat->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($boat);
-            $entityManager->flush();
+        if ($this->isCsrfTokenValid('delete' . $boat->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($boat);
+            $em->flush();
         }
 
         return $this->redirectToRoute('boat_index');
