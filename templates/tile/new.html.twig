@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Tile{% endblock %}
+
+{% block body %}
+    <h1>Create new Tile</h1>
+
+    {{ include('tile/_form.html.twig') }}
+
+    <a href="{{ path('tile_index') }}">back to list</a>
+{% endblock %}

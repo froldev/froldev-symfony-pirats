@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tile index{% endblock %}
+
+{% block body %}
+    <h1>Tile index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>CoordX</th>
+                <th>CoordY</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tile in tiles %}
+            <tr>
+                <td>{{ tile.id }}</td>
+                <td>{{ tile.type }}</td>
+                <td>{{ tile.coordX }}</td>
+                <td>{{ tile.coordY }}</td>
+                <td>
+                    <a href="{{ path('tile_show', {'id': tile.id}) }}">show</a>
+                    <a href="{{ path('tile_edit', {'id': tile.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tile_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Boat{% endblock %}
+
+{% block body %}
+    <h1>Edit Boat</h1>
+
+    {{ include('boat/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('boat_index') }}">back to list</a>
+
+    {{ include('boat/_delete_form.html.twig') }}
+{% endblock %}

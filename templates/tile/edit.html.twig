@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Tile{% endblock %}
+
+{% block body %}
+    <h1>Edit Tile</h1>
+
+    {{ include('tile/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('tile_index') }}">back to list</a>
+
+    {{ include('tile/_delete_form.html.twig') }}
+{% endblock %}
