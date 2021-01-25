@@ -8,7 +8,8 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     {% block stylesheets %}{% endblock %}
-    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('style') }}
+    {{ encore_entry_link_tags('map') }}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
@@ -40,6 +41,6 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
     {% block javascripts %}{% endblock %}
-    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('style') }}
 </body>
 </html>

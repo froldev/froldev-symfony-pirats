@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/map.css') }}">
-{% endblock %}
+{% block stylesheets %}{% endblock %}
 
 {% block body %}
     <div class="container-fluid">
@@ -21,7 +19,7 @@
                                         <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
                                         <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
                                         {% if boat.coordX == x and boat.coordY == y %}
-                                            <img class="boat img-fluid" src="{{ asset('assets/images/boat.png') }}"
+                                            <img class="boat img-fluid" src="{{ asset('/assets/images/boat.png') }}"
                                                  alt="boat"/>
                                         {% endif %}
                                     </div>
