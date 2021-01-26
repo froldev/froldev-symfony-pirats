@@ -4,12 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Boat;
 use App\Form\BoatType;
+use App\Services\MapManager;
 use App\Repository\BoatRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/boat")
@@ -33,8 +34,8 @@ class BoatController extends AbstractController
      * @Route("/move/{x}/{y}", name="moveBoat", requirements={"x"="\d+", "y"="\d+"}))
      */
     public function moveBoat(
-        int $x, 
-        int $y, BoatRepository $boatRepository, 
+        int $x,
+        int $y, BoatRepository $boatRepository,
         EntityManagerInterface $em
     ) :Response
     {
@@ -51,9 +52,10 @@ class BoatController extends AbstractController
      * @Route("/direction/{direction}", name="moveDirectionBoat")
      */
     public function moveDirection(
-        string $direction, 
-        BoatRepository $boatRepository, 
-        EntityManagerInterface $em
+        string $direction,
+        BoatRepository $boatRepository,
+        EntityManagerInterface $em,
+        MapManager $mapManager
     ): Response
     {
         if(!in_array($direction, self::DIRECTIONS)) {
@@ -77,7 +79,12 @@ class BoatController extends AbstractController
                 break;
         }
 
-        $em->flush();
+        if ($mapManager->tileExists($boat->getCoordX(), $boat->getCoordY())) {
+            $em->flush();
+        } else {
+            $this->addFlash('danger', 'Tile doesnt exist !!!');
+        }
+
         return $this->redirectToRoute('map');
     }
 
