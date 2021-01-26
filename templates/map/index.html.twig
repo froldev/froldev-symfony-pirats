@@ -48,3 +48,21 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+<script>
+document.addEventListener('keydown', function(event) {
+    if (event.code === "ArrowUp") {
+        window.location.href= "/boat/direction/N";
+    } else if (event.code === "ArrowDown") {
+        window.location.href= "/boat/direction/S";
+    }
+     else if (event.code === "ArrowLeft") {
+        window.location.href= "/boat/direction/W";
+    }
+     else if (event.code === "ArrowRight") {
+        window.location.href= "/boat/direction/E";
+    }
+})
+</script>
+{% endblock %}
