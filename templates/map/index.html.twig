@@ -35,6 +35,7 @@
                     <p>Coord X : {{ boat.coordX }}</p>
                     <p>Coord Y : {{ boat.coordY }}</p>
                     <p>{{ map[boat.coordX][boat.coordY].type|capitalize }}</p>
+                    <p>{{dump(map[boat.coordX][boat.coordY].hasTreasure)}}</p>
                 </div>
                 <div class="navigation">
                     <h2>Navigation</h2>

@@ -85,6 +85,10 @@ class BoatController extends AbstractController
             $this->addFlash('danger', 'Tile doesnt exist !!!');
         }
 
+        if ($mapManager->checkTreasure($boat)) {
+            $this->addFlash("success", "You win");
+        }
+
         return $this->redirectToRoute('map');
     }
 
