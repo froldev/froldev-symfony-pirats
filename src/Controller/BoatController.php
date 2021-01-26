@@ -36,14 +36,14 @@ class BoatController extends AbstractController
     public function moveBoat(
         int $x,
         int $y, BoatRepository $boatRepository,
-        EntityManagerInterface $em
+        EntityManagerInterface $entityManager
     ) :Response
     {
         $boat = $boatRepository->findOneBy([]);
         $boat->setCoordX($x);
         $boat->setCoordY($y);
 
-        $em->flush();
+        $entityManager->flush();
 
         return $this->redirectToRoute('map');
     }
@@ -54,7 +54,7 @@ class BoatController extends AbstractController
     public function moveDirection(
         string $direction,
         BoatRepository $boatRepository,
-        EntityManagerInterface $em,
+        EntityManagerInterface $entityManager,
         MapManager $mapManager
     ): Response
     {
@@ -80,7 +80,7 @@ class BoatController extends AbstractController
         }
 
         if ($mapManager->tileExists($boat->getCoordX(), $boat->getCoordY())) {
-            $em->flush();
+            $entityManager->flush();
         } else {
             $this->addFlash('danger', 'Tile doesnt exist !!!');
         }
