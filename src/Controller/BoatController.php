@@ -35,10 +35,10 @@ class BoatController extends AbstractController
      */
     public function moveBoat(
         int $x,
-        int $y, BoatRepository $boatRepository,
+        int $y,
+        BoatRepository $boatRepository,
         EntityManagerInterface $entityManager
-    ) :Response
-    {
+    ): Response {
         $boat = $boatRepository->findOneBy([]);
         $boat->setCoordX($x);
         $boat->setCoordY($y);
@@ -56,9 +56,8 @@ class BoatController extends AbstractController
         BoatRepository $boatRepository,
         EntityManagerInterface $entityManager,
         MapManager $mapManager
-    ): Response
-    {
-        if(!in_array($direction, self::DIRECTIONS)) {
+    ): Response {
+        if (!in_array($direction, self::DIRECTIONS)) {
             throw $this->createNotFoundException('insert valid direction');
         }
 
@@ -66,27 +65,25 @@ class BoatController extends AbstractController
 
         switch ($direction) {
             case self::NORTH:
-                $boat->setCoordY($boat->getCoordY()-1);
+                $boat->setCoordY($boat->getCoordY() - 1);
                 break;
             case self::SOUTH:
-                $boat->setCoordY($boat->getCoordY()+1);
+                $boat->setCoordY($boat->getCoordY() + 1);
                 break;
             case self::EAST:
-                $boat->setCoordX($boat->getCoordX()+1);
+                $boat->setCoordX($boat->getCoordX() + 1);
                 break;
             case self::WEST:
-                $boat->setCoordX($boat->getCoordX()-1);
+                $boat->setCoordX($boat->getCoordX() - 1);
                 break;
         }
 
         if ($mapManager->tileExists($boat->getCoordX(), $boat->getCoordY())) {
             $entityManager->flush();
-        } else {
-            $this->addFlash('danger', 'Tile doesnt exist !!!');
         }
 
         if ($mapManager->checkTreasure($boat)) {
-            $this->addFlash("success", "You win");
+            return $this->redirectToRoute('victory');
         }
 
         return $this->redirectToRoute('map');
