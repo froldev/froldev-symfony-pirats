@@ -3,66 +3,64 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-    <div class="container-fluid">
-        <h1>Map</h1>
-        <div class="row">
-            <div class="col-10">
-                <div class="map">
-                    {% if map is empty %}
-                        <div class="alert alert-warning">You are still on the firm ground, you have to load fixtures first !</div>
-                    {% endif %}
-                    {% for y in 0..6 %}
-                        <div class="row">
-                            {% for x in 0..12 %}
-                                {% if map[x][y] is defined %}
-                                    <div class="tile col-1 {{ map[x][y].type }}">
-                                        <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
-                                        <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
-                                        {% if boat.coordX == x and boat.coordY == y %}
-                                            <img class="boat img-fluid" src="{{ asset('build/images/boat.png') }}"
-                                                 alt="boat"/>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="infos">
-                    <h2>Information</h2>
-                    <p>Coord X : {{ boat.coordX }}</p>
-                    <p>Coord Y : {{ boat.coordY }}</p>
-                    <p>{{ map[boat.coordX][boat.coordY].type|capitalize }}</p>
-                    <p>{{dump(map[boat.coordX][boat.coordY].hasTreasure)}}</p>
-                </div>
-                <div class="navigation">
-                    <h2>Navigation</h2>
-                    <a href="{{ path("moveDirectionBoat", { direction: "N"}) }}">North</a>
-                    <a href="{{ path("moveDirectionBoat", { direction: "W"}) }}">West</a>
-                    <a href="{{ path("moveDirectionBoat", { direction: "E"}) }}">East</a>
-                    <a href="{{ path("moveDirectionBoat", { direction: "S"}) }}">South</a>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container-fluid">
+		<h1>Map</h1>
+		<div class="row">
+			<div class="col-10">
+				<div class="map">
+					{% if map is empty %}
+						<div class="alert alert-warning">You are still on the firm ground, you have to load fixtures first !</div>
+					{% endif %}
+					{% for y in 0..6 %}
+						<div class="row">
+							{% for x in 0..12 %}
+								{% if map[x][y] is defined %}
+									<div class="tile col-1 {{ map[x][y].type }}">
+										<div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
+										<div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
+										{% if boat.coordX == x and boat.coordY == y %}
+											<img class="boat img-fluid" src="{{ asset('build/images/boat.png') }}" alt="boat"/>
+										{% endif %}
+									</div>
+								{% endif %}
+							{% endfor %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="infos">
+					<h2>Information</h2>
+					<p>Coord X :
+						{{ boat.coordX }}</p>
+					<p>Coord Y :
+						{{ boat.coordY }}</p>
+					<p>{{ map[boat.coordX][boat.coordY].type|capitalize }}</p>
+				</div>
+				<div class="navigation">
+					<h2>Navigation</h2>
+					<a href="{{ path("moveDirectionBoat", { direction: "N"}) }}">North</a>
+					<a href="{{ path("moveDirectionBoat", { direction: "W"}) }}">West</a>
+					<a href="{{ path("moveDirectionBoat", { direction: "E"}) }}">East</a>
+					<a href="{{ path("moveDirectionBoat", { direction: "S"}) }}">South</a>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 
 {% block javascripts %}
-<script>
-document.addEventListener('keydown', function(event) {
-    if (event.code === "ArrowUp") {
-        window.location.href= "/boat/direction/N";
-    } else if (event.code === "ArrowDown") {
-        window.location.href= "/boat/direction/S";
-    }
-     else if (event.code === "ArrowLeft") {
-        window.location.href= "/boat/direction/W";
-    }
-     else if (event.code === "ArrowRight") {
-        window.location.href= "/boat/direction/E";
-    }
+	<script>
+		document.addEventListener('keydown', function (event) {
+if (event.code === "ArrowUp") {
+window.location.href = "/boat/direction/N";
+} else if (event.code === "ArrowDown") {
+window.location.href = "/boat/direction/S";
+} else if (event.code === "ArrowLeft") {
+window.location.href = "/boat/direction/W";
+} else if (event.code === "ArrowRight") {
+window.location.href = "/boat/direction/E";
+}
 })
-</script>
+	</script>
 {% endblock %}

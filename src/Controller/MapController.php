@@ -2,21 +2,21 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Tile;
 use App\Repository\BoatRepository;
 use App\Repository\TileRepository;
 use App\Services\MapManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class MapController extends AbstractController
 {
     /**
      * @Route("/map", name="map")
      */
-    public function displayMap(BoatRepository $boatRepository) :Response
+    public function displayMap(BoatRepository $boatRepository): Response
     {
         $em = $this->getDoctrine()->getManager();
         $tiles = $em->getRepository(Tile::class)->findAll();
@@ -41,16 +41,14 @@ class MapController extends AbstractController
         TileRepository $tileRepository,
         EntityManagerInterface $entityManager,
         MapManager $mapManager
-    ): Response
-    {
+    ): Response {
         $boat = $boatRepository->findOneBy([]);
         $boat
             ->setCoordX(0)
-            ->setCoordY(0)
-        ;
+            ->setCoordY(0);
 
         $tile = $tileRepository->findOneBy([
-            'hasTreasure' => true
+            'hasTreasure' => true,
         ]);
         if ($tile) {
             $tile->setHasTreasure(false);
