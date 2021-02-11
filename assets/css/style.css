@@ -1,10 +1,11 @@
 @font-face {
   font-family: Caribbean;
-  src: url('../fonts/Caribbean.ttf');
+  src: url("../fonts/Caribbean.ttf");
 }
 
 body {
-  background-image: url('../images/background.jpg');
+  background-color: black;
+  background-image: url("../images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -15,13 +16,24 @@ nav {
   font-family: Caribbean;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   font-family: Caribbean;
   color: white;
 }
 
 .introduction {
-  background-image: url('../images/papyrus.png');
+  background-image: url("../images/desktop.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 7em;
@@ -60,9 +72,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .hint {
   font-weight: bold;
   font-family: Caribbean;
-
 }
 blockquote {
   font-style: italic;
-  margin-top:0.5em;
+  margin-top: 0.5em;
 }

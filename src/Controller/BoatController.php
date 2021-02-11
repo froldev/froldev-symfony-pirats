@@ -58,7 +58,7 @@ class BoatController extends AbstractController
         MapManager $mapManager
     ): Response {
         if (!in_array($direction, self::DIRECTIONS)) {
-            throw $this->createNotFoundException('insert valid direction');
+            throw $this->createNotFoundException('Cette direction n\'existe pas !');
         }
 
         $boat = $boatRepository->findOneBy([]);
@@ -147,19 +147,5 @@ class BoatController extends AbstractController
             'boat' => $boat,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="boat_delete", methods="DELETE")
-     */
-    public function delete(Request $request, Boat $boat): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $boat->getId(), $request->request->get('_token'))) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($boat);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('boat_index');
     }
 }

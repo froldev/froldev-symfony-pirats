@@ -3,10 +3,10 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-	<div class="container-fluid">
-		<h1>Map</h1>
+	<div id="map" class="container-fluid">
+		<h1>La Carte</h1>
 		<div class="row">
-			<div class="col-10">
+			<div class="col-md-10 col-sm-12">
 				<div class="map">
 					{% if map is empty %}
 						<div class="alert alert-warning">You are still on the firm ground, you have to load fixtures first !</div>
@@ -19,7 +19,7 @@
 										<div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
 										<div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
 										{% if boat.coordX == x and boat.coordY == y %}
-											<img class="boat img-fluid" src="{{ asset('build/images/boat.png') }}" alt="boat"/>
+											<img id="boat" class="boat img-fluid" src="{{ asset('build/images/boat.png') }}" alt="boat" loading="load"/>
 										{% endif %}
 									</div>
 								{% endif %}
@@ -28,21 +28,36 @@
 					{% endfor %}
 				</div>
 			</div>
-			<div class="col-2">
-				<div class="infos">
-					<h2>Information</h2>
-					<p>Coord X :
-						{{ boat.coordX }}</p>
-					<p>Coord Y :
-						{{ boat.coordY }}</p>
-					<p>{{ map[boat.coordX][boat.coordY].type|capitalize }}</p>
-				</div>
+			<div class="col-md-2 col-sm-12 navigation-infos">
 				<div class="navigation">
 					<h2>Navigation</h2>
-					<a href="{{ path("moveDirectionBoat", { direction: "N"}) }}">North</a>
-					<a href="{{ path("moveDirectionBoat", { direction: "W"}) }}">West</a>
-					<a href="{{ path("moveDirectionBoat", { direction: "E"}) }}">East</a>
-					<a href="{{ path("moveDirectionBoat", { direction: "S"}) }}">South</a>
+					<p class="nav-infos">Vous pouvez utiliser les touches de votre clavier ou les boutons de la boussole.</p>
+					<div class="compass">
+						<div class="row">
+							<a class="btn col-2" href="{{ path("moveDirectionBoat", { direction: "N"}) }}">N</a>
+						</div>
+						<div class="row middle">
+							<a class="btn col-2" href="{{ path("moveDirectionBoat", { direction: "W"}) }}">O</a>
+							<a class="btn col-2" href="{{ path("moveDirectionBoat", { direction: "E"}) }}">E</a>
+						</div>
+						<div class="row">
+							<a class="btn col-2" href="{{ path("moveDirectionBoat", { direction: "S"}) }}">S</a>
+						</div>
+					</div>
+				</div>
+				<div class="infos">
+					<h2>Information</h2>
+					<div class="board">
+						<p>Longitude :
+							{{ boat.coordX }}</p>
+						<p>Latitude :
+							{{ boat.coordY }}</p>
+						<div class="overlay-image">
+						<img class="img-fluid" src="{{ asset('build/images/icon-help.png') }}" alt="indice" loading="lazy">
+						<span class="overlay-text">"Le trésor est caché dans une île abandonnée...."</span>
+						</div>
+						<p></p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -50,6 +65,7 @@
 {% endblock %}
 
 {% block javascripts %}
+	{{ encore_entry_script_tags('map') }}
 	<script>
 		document.addEventListener('keydown', function (event) {
 if (event.code === "ArrowUp") {

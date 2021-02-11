@@ -1,32 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <div class="row introduction">
-            <div class="col-sm-9">
-                <p>
-                    The most famous pirate in the world, the great and inimitable Captain Jack Sparrow, is looking for
-                    the lost treasure of Rackham the Red, an old and pitiless pirate who spread terror among the Caribbean seas,
-                    a long long time ago.
-                </p>
-                <p>An old sailor from the Kingdom of France, Captain Haddock, has given Jack a mysterious map with many islands on it.
-                    Haddock only knew that the treasure is buried on one of these islands.
-                    Jack and his crew have the mission to navigate to each of them, until they find the gold coins
-                    and precious gems that constitute the hidden treasure.
-                </p>
-            </div>
-            <div class="col-sm-3">
-                <img class="sparrow" src="{{ asset('assets/images/sparrow.jpg') }}" alt="Jack Sparrow">
-            </div>
-            <div class="col-sm-12 text-center">
-                <img class="compass" src="{{ asset('assets/images/compass.png') }}" alt="compass">
-            </div>
-            <div class="col-sm-12">
-                <p>Take control of the Black Perl, Jack's magnificent ship, and navigate among the oceans. Avoid
-                    krakens, storms or other pirates and be the first to find the treasure!
-                    It's time to finish your last bottle of rum and let's start this adventure!
-                </p>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row introduction"></div>
+	</div>
 {% endblock %}
+
+{% block javascripts %}{% endblock %}
