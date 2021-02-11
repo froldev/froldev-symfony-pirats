@@ -1,0 +1,28 @@
+.victory {
+  background-image: url("../images/treasure.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 7em;
+  padding-top: 6em;
+  font-size: 14pt;
+  height: 800px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.congratulations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.congratulations p {
+  text-align: center;
+}
+
+.congratulations .btn {
+  text-transform: uppercase;
+  width: 150px;
+}

@@ -1,13 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello VictoryController!
+{% block title %}Pirates || Victoire
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('victory') }}
 {% endblock %}
 
 {% block body %}
 	<div class="container">
+		<h1>Victoire</h1>
 		<div class="row victory">
-			<h2>Victoire</h2>
-			<a class="btn" href="{{ path('start') }}">Recommencer</a>
+			<div class="col-lg-6 offset-lg-3 col-md-12 congratulations">
+				<p>Vous avez trouvé l'île abandonnée et découvert le trésor tant cherché par tous les pirates ...</p>
+				<p>Qu'allez-vous faire de tout cet or ???</p>
+				<div class="d-grid gap-3 d-md-block mt-4">
+					<a class="btn btn-danger" href="{{ path('homepage') }}">Histoire</a>
+					<a class="btn btn-dark" href="{{ path('start') }}">Recommencer</a>
+				</div>
+			</div>
 		</div>
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('victory') }}
 {% endblock %}

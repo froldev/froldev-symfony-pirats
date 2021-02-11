@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('style', './assets/style.js')
     .addEntry('map', './assets/map.js')
+    .addEntry('victory', './assets/victory.js')
 
     .copyFiles({
         from: './assets/images',

@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
+{% block title %}
+	Pirates || Trouver le Trésor
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('map') }}
+{% endblock %}
 
 {% block body %}
 	<div id="map" class="container-fluid">
@@ -53,8 +59,8 @@
 						<p>Latitude :
 							{{ boat.coordY }}</p>
 						<div class="overlay-image">
-						<img class="img-fluid" src="{{ asset('build/images/icon-help.png') }}" alt="indice" loading="lazy">
-						<span class="overlay-text">"Le trésor est caché dans une île abandonnée...."</span>
+							<img class="img-fluid" src="{{ asset('build/images/icon-help.png') }}" alt="indice" loading="lazy">
+							<span class="overlay-text">"Le trésor est caché dans une île abandonnée...."</span>
 						</div>
 						<p></p>
 					</div>
