@@ -46,3 +46,14 @@ h1 {
 p {
   font-family: Pirate;
 }
+
+.nav-item {
+  border: 1px transparent;
+}
+
+.nav-item:hover {
+  color: black !important;
+  background-color: #cb9b51;
+  border: 1px solid black !important;
+  border-radius: 5px;
+}
