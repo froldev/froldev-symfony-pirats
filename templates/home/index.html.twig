@@ -1,11 +1,77 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}{% endblock %}
+{% block title %}
+	Pirates || Toute l'histoire
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('homepage') }}
+{% endblock %}
 
 {% block body %}
 	<div class="container">
-		<div class="row introduction"></div>
-	</div>
-{% endblock %}
+		<div class="row introduction">
 
-{% block javascripts %}{% endblock %}
+			<div id="#book">
+				<figure
+					class='book'>
+
+					<!-- Front -->
+					<ul class='hardcover_front'>
+						<li>
+							<div class="coverDesign dark">
+								<h3>Je suis un pirate</h3>
+								<img class="img-fluid logo-book" src="{{ asset('build/images/logo-book.png') }}" alt="Logo en or" loading="lazy"/>
+							</div>
+						</li>
+						<li></li>
+					</ul>
+
+					<!-- Pages -->
+					<ul class='page'>
+						<li>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus harum rem earum facilis, fugiat doloribus eveniet ex odio corrupti labore officiis expedita voluptatibus laudantium mollitia adipisci reprehenderit qui sequi quibusdam.</p>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+						</li>
+						<li>
+							<p>J'ai du mouillé l'ancre et abandonner mon trésor sur une île perdue.</p>
+							<p>Si un flibustier veut se donner la peine, mon trésor deviendra le sien.</p>
+							<p>Allez mille sabords, il est temps de lever l'ancre.</p>
+							<p class="right">Capitaine Jerrick Rambling Morden</p>
+							<div class="block-page">
+								<a class="btn btn-search" href="{{ path('start') }}" title="Chercher le trésor">
+									<img class="img-fluid btn-search-picture" src="{{ asset('build/images/sceau.png') }}" alt="sceau" loading=" lazy"/>
+									<span class="btn-search-text">Chercher</span>
+								</a>
+							</div>
+						</li>
+						<li class="block-page">
+							<img class="img-fluid boat-draw" src="{{ asset('build/images/boat-draw.png') }}" alt="Dessin du bateau" loading="lazy"/>
+						</li>
+						<li>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus harum rem earum facilis, fugiat doloribus eveniet ex odio corrupti labore officiis expedita voluptatibus laudantium mollitia adipisci reprehenderit qui sequi quibusdam.</p>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+						</li>
+						<li>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus harum rem earum facilis, fugiat doloribus eveniet ex odio corrupti labore officiis expedita voluptatibus laudantium mollitia adipisci reprehenderit qui sequi quibusdam.</p>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+						</li>
+					</ul>
+
+					<!-- Back -->
+					<ul class='hardcover_back'>
+						<li></li>
+						<li></li>
+					</ul>
+					<ul class='book_spine'>
+						<li></li>
+						<li></li>
+					</ul>
+				</li>
+			</figure>
+		</div>
+
+	</div>
+</div>{% endblock %}

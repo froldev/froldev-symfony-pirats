@@ -3,6 +3,11 @@
   src: url("../fonts/Caribbean.ttf");
 }
 
+@font-face {
+  font-family: Pirate;
+  src: url("../fonts/JackPirate.ttf");
+}
+
 body {
   background-color: black;
   background-image: url("../images/background.jpg");
@@ -38,17 +43,6 @@ h1 {
   background-color: black;
 }
 
-.introduction {
-  background-image: url("../images/desktop.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 7em;
-  padding-top: 6em;
-  font-size: 14pt;
-  height: 800px;
-}
-
-.introduction p::first-letter {
-  font-family: Caribbean;
-  font-size: 2em;
+p {
+  font-family: Pirate;
 }

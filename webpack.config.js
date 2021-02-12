@@ -21,8 +21,9 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('style', './assets/style.js')
-    .addEntry('map', './assets/map.js')
-    .addEntry('victory', './assets/victory.js')
+    .addEntry('homepage', './assets/css/homepage.css')
+    .addEntry('map', './assets/css/map.css')
+    .addEntry('victory', './assets/css/victory.css')
 
     .copyFiles({
         from: './assets/images',
