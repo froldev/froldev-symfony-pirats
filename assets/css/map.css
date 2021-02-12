@@ -189,6 +189,7 @@
 
 .overlay-image:hover .overlay-text {
   display: block;
+  font-size: 10px;
   color: grey;
   text-align: center;
   position: absolute;

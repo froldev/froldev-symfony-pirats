@@ -23,6 +23,7 @@ Encore
     .addEntry('style', './assets/style.js')
     .addEntry('homepage', './assets/css/homepage.css')
     .addEntry('map', './assets/css/map.css')
+    .addEntry('moveBoat', './assets/js/moveBoat.js')
     .addEntry('victory', './assets/css/victory.css')
 
     .copyFiles({
