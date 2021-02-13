@@ -9,12 +9,12 @@
 }
 
 body {
-  background-color: black;
-  background-image: url("../images/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   padding-top: 70px;
+  margin: 0;
+  background-color: black;
+  background: url("../images/background.jpg") no-repeat center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 nav {
@@ -26,13 +26,7 @@ h2,
 h3,
 h4,
 h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+h6 {
   font-family: Caribbean;
   color: white;
 }
@@ -45,6 +39,14 @@ h1 {
 
 p {
   font-family: Pirate;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+.navbar-nav .nav-link {
+  text-align: center;
 }
 
 .nav-item {

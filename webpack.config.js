@@ -21,6 +21,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('style', './assets/style.js')
+    .addEntry('mediaqueries', './assets/css/mediaqueries.css')
     .addEntry('homepage', './assets/css/homepage.css')
     .addEntry('map', './assets/css/map.css')
     .addEntry('moveBoat', './assets/js/moveBoat.js')

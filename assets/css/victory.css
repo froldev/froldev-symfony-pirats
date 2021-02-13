@@ -1,16 +1,18 @@
 .victory {
-  background-image: url("../images/treasure.jpg");
+  background-color: black;
+  background: url("../images/treasure.jpg") no-repeat center;
+  -webkit-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
-  padding: 7em;
-  padding-top: 6em;
-  font-size: 14pt;
-  height: 800px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  padding: 60px;
+  height: 600px;
   margin-left: 0;
   margin-right: 0;
 }
 
 .congratulations {
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
