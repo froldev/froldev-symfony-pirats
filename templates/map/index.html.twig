@@ -15,7 +15,7 @@
 			<div class="col-md-10 col-sm-12">
 				<div class="map">
 					{% if map is empty %}
-						<div class="alert alert-warning">You are still on the firm ground, you have to load fixtures first !</div>
+						<div class="alert alert-warning">Vous devez intégrer les fixtures avant de pouvoir avoir accès à la carte !</div>
 					{% endif %}
 					{% for y in 0..6 %}
 						<div class="row">
@@ -25,7 +25,7 @@
 										<div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
 										<div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
 										{% if boat.coordX == x and boat.coordY == y %}
-											<img id="boat" class="boat img-fluid" src="{{ asset('build/images/boat.png') }}" alt="boat" loading="load"/>
+											<img id="boat" class="boat" src="{{ asset('build/images/boat.png') }}" alt="boat" loading="load"/>
 										{% endif %}
 									</div>
 								{% endif %}
@@ -35,18 +35,19 @@
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-12 navigation-infos">
+
 				<div class="navigation">
 					<h2>Navigation</h2>
 					<p class="nav-infos">Vous pouvez utiliser les touches de votre clavier ou les boutons de la boussole.</p>
 					<div class="compass">
-						<div class="row">
+						<div class="compass-btn">
 							<a class="btn col-2 js-move" href="{{ path("moveDirectionBoat", { direction: "N"}) }}">N</a>
 						</div>
-						<div class="row middle">
+						<div class="compass-btn middle">
 							<a class="btn col-2 js-move" href="{{ path("moveDirectionBoat", { direction: "W"}) }}">O</a>
 							<a class="btn col-2 js-move" href="{{ path("moveDirectionBoat", { direction: "E"}) }}">E</a>
 						</div>
-						<div class="row">
+						<div class="compass-btn">
 							<a class="btn col-2 js-move" href="{{ path("moveDirectionBoat", { direction: "S"}) }}">S</a>
 						</div>
 					</div>
@@ -62,7 +63,7 @@
 						</p>
 						<div class="overlay-image">
 							<img class="img-fluid" src="{{ asset('build/images/icon-help.png') }}" alt="indice" loading="lazy">
-							<span class="overlay-text">"J'ai abandonné mon trésor sur une île perdue...."</span>
+							<p class="overlay-text">"J'ai abandonné mon trésor sur une île perdue...."</p>
 						</div>
 					</div>
 				</div>

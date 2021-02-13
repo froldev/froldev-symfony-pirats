@@ -16,33 +16,12 @@
   top: 0;
   right: 0;
   text-shadow: 1px 1px 2px black;
-  font-size: 3em;
+  font-size: 40px;
   display: none;
 }
 
 .tile:hover .coords {
   display: block;
-}
-
-@media screen and (max-width: 1800px) {
-  .tile {
-    height: 100px;
-    width: 100px;
-  }
-}
-
-@media screen and (max-width: 1475px) {
-  .tile {
-    height: 80px;
-    width: 80px;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .tile {
-    height: 60px;
-    width: 60px;
-  }
 }
 
 .tile-name {
@@ -52,15 +31,24 @@
 }
 
 .sea {
-  background-image: url("../images/sea.png");
+  background-color: #cb9b51;
+  background: url("../images/sea-sm.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .port {
-  background-image: url("../images/port.png");
+  background-color: #cb9b51;
+  background: url("../images/port-sm.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .island {
-  background-image: url("../images/island.png");
+  background-color: #cb9b51;
+  background: url("../images/island-sm.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 @keyframes myBoat {
@@ -90,18 +78,19 @@
 
 .navigation-infos {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
 }
 
 .navigation,
 .infos {
   background-color: black;
   border: 1px solid white;
-  height: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 20px;
 }
 
 .navigation h2,
@@ -126,8 +115,8 @@
 
 .compass,
 .board {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -138,12 +127,20 @@
 .compass {
   background-image: url("../images/compass.png");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
+.compass .compass-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .compass .btn {
+  width: 50px;
+  height: 50px;
   color: white !important;
   background-color: black !important;
-  height: 50px;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -160,12 +157,15 @@
 .compass .middle {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .board {
   background-image: url("../images/infos.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
 }
 .board p {
   color: white;
@@ -174,27 +174,33 @@
 }
 
 .overlay-image {
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay-image img {
   width: 50px;
   height: 50px;
+  background-color: black;
 }
 
 .overlay-text {
   display: none;
-  padding: 5px 10px;
 }
 
 .overlay-image:hover .overlay-text {
   display: block;
   font-size: 10px;
   color: grey;
+  background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
+  width: 100%;
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+}
+
+#boat {
+  width: 30px;
 }

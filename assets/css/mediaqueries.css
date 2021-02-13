@@ -1,8 +1,7 @@
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
-  .victory {
-    font-size: 18px;
-    height: 600px;
+  .coords {
+    font-size: 60px;
   }
 }
 
@@ -45,6 +44,30 @@
     font-size: 13px;
     padding: 5px;
   }
+  /* map */
+  .coords {
+    font-size: 80px;
+  }
+  .sea {
+    background: url("../images/sea.png");
+  }
+  .port {
+    background: url("../images/port.png");
+  }
+  .island {
+    background: url("../images/island.png");
+  }
+  .navigation-infos {
+    flex-direction: column;
+  }
+  .compass,
+  .board {
+    height: 200px;
+  }
+  #boat {
+    width: 80px;
+  }
+
   /* section victory */
   .victory {
     font-size: 20px;
