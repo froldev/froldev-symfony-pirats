@@ -1,16 +1,32 @@
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
+  .book .btn-search {
+    width: 85px;
+    height: 85px;
+  }
   .coords {
     font-size: 60px;
+  }
+  .sea {
+    background: url("../images/sea-md.png");
+    background-size: contain;
+  }
+  .port {
+    background: url("../images/port-md.png");
+    background-size: contain;
+  }
+  .island {
+    background: url("../images/island-md.png");
+    background-size: contain;
+  }
+  #boat {
+    width: 50px;
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
   /* homepage */
-  body {
-    height: 100%;
-  }
   .introduction {
     padding: 150px 150px 0 0;
     font-size: 14pt;
@@ -33,14 +49,11 @@
     font-size: 18px;
     margin-bottom: 10px;
   }
-  .boat-draw {
-    height: 350px;
-  }
-  .btn-search {
+  .book .btn-search {
     width: 100px;
-    margin-top: 45px;
+    height: 100px;
   }
-  .btn-search .btn-search-text {
+  .book .btn-search .btn-search-text {
     font-size: 13px;
     padding: 5px;
   }
@@ -49,13 +62,15 @@
     font-size: 80px;
   }
   .sea {
-    background: url("../images/sea.png");
+    background: url("../images/sea-lg.png");
   }
   .port {
-    background: url("../images/port.png");
+    background: url("../images/port-lg.png");
+    background-size: contain;
   }
   .island {
-    background: url("../images/island.png");
+    background: url("../images/island-lg.png");
+    background-size: contain;
   }
   .navigation-infos {
     flex-direction: column;
@@ -65,7 +80,7 @@
     height: 200px;
   }
   #boat {
-    width: 80px;
+    width: 70px;
   }
 
   /* section victory */
@@ -75,17 +90,5 @@
   }
 }
 
-/* Media Queries */
-@media screen and (max-width: 37.8125em) {
-  .align > li {
-    width: 100%;
-    min-height: 440px;
-    height: auto;
-    padding: 0;
-    margin: 0 0 30px 0;
-  }
-
-  .book {
-    margin: 0 auto;
-  }
-}
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";

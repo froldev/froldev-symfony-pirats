@@ -31,24 +31,18 @@
 }
 
 .sea {
-  background-color: #cb9b51;
   background: url("../images/sea-sm.png") no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover;
+  background-size: contain;
 }
 
 .port {
-  background-color: #cb9b51;
   background: url("../images/port-sm.png") no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover;
+  background-size: contain;
 }
 
 .island {
-  background-color: #cb9b51;
   background: url("../images/island-sm.png") no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover;
+  background-size: contain;
 }
 
 @keyframes myBoat {
@@ -195,6 +189,7 @@
   font-size: 10px;
   color: grey;
   background-color: rgba(0, 0, 0, 0.5);
+  text-decoration: italic;
   text-align: center;
   width: 100%;
   position: absolute;

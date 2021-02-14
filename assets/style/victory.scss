@@ -28,3 +28,10 @@
   text-transform: uppercase;
   width: 150px;
 }
+
+.congratulations .btn:hover {
+  color: black !important;
+  background-color: #cb9b51;
+  border: 1px solid black !important;
+  border-radius: 5px;
+}

@@ -4,15 +4,11 @@
 	Pirates || Trouver le Trésor
 {% endblock %}
 
-{% block stylesheets %}
-	{{ encore_entry_link_tags('map') }}
-{% endblock %}
-
 {% block body %}
 	<div id="map" class="container-fluid">
 		<h1>La Carte</h1>
 		<div class="row">
-			<div class="col-md-10 col-sm-12">
+			<div class="col-lg-10 col-md-12">
 				<div class="map">
 					{% if map is empty %}
 						<div class="alert alert-warning">Vous devez intégrer les fixtures avant de pouvoir avoir accès à la carte !</div>
@@ -34,7 +30,7 @@
 					{% endfor %}
 				</div>
 			</div>
-			<div class="col-md-2 col-sm-12 navigation-infos">
+			<div class="col-lg-2 col-md-12 navigation-infos">
 
 				<div class="navigation">
 					<h2>Navigation</h2>
