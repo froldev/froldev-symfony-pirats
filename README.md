@@ -1,91 +1,44 @@
-<!-- ABOUT THE PROJECT -->
+# PIRATES
 
-# PIRATES : Serez-vous trouver le trésor ???
+![](https://static.tvtropes.org/pmwiki/pub/images/potc_monocle2.jpg)
 
-## About The Project
+Launch your server and find the Treasure.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+## Requirements
 
-Here you can describe the project, why you made it and **for who you made it**, but mostly don't forget to add a screenshot like the image above AND a link to the demo like this : https://NicolasBrondin.github.io/basic-readme-template/
+- Php ^7.2 http://php.net/manual/fr/install.php;
+- Composer https://getcomposer.org/download/;
 
-### Built With
+## Installation
 
-- 🖊️ Markdown
-- 🐙 Github
-- 💻 VS Code
+1. Clone the current repository.
 
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-- Git
-
-```sh
-sudo apt-get install git
+```bash
+$ git clone https://github.com/froldev/symfony-pirats.git
 ```
 
-- Php ^7.2
+2. Move into the directory and create an `.env.local` file.
+   **This one is not committed to the shared repository.**
+   Set `db_name` to **pirats**.
 
-http://php.net/manual/fr/install.php
+3. Execute the following commands in your working folder to install the project:
 
-- Composer
-
-https://getcomposer.org/download/
-
-### Installation
-
-1. Clone the repo
-
-```sh
-git clone https://github.com/froldev/symfony-pirats.git
+```bash
+$ composer install
+$ bin/console d:d:c (create the DataBase)
+$ bin/console d:m:m (execute migrations and create tables)
+$ bin/console d:f:l (execute fixtures to display the map)
 ```
 
-2. Open youe favorite IDE
-3. Open the README.md file and execute the following command
+> Reminder: Don't use composer update to avoid problem
 
-```sh
-ctrl+k v
-```
-
-<!-- USAGE EXAMPLES -->
+> Assets are directly into _public/_ directory, **we will not use** Webpack with this checkpoint
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Launch the server with the command below and run yarn watch to compile the folder with pictures and styles sass;
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<!-- CONTACT -->
-
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
-
-Project Link: [https://github.com/github_username/github_repo](https://github.com/github_username/github_repo)
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## Acknowledgements
-
-- This readme version is a simplified version of this [github repository](https://github.com/othneildrew/Best-README-Template) by Othneildrew
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[contributors-url]: https://github.com/NicolasBrondin/basic-readme-template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[forks-url]: https://github.com/NicolasBrondin/basic-readme-template/network/members
-[stars-shield]: https://img.shields.io/github/stars/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[stars-url]: https://github.com/NicolasBrondin/basic-readme-template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[issues-url]: https://github.com/NicolasBrondin/basic-readme-template/issues
-[license-shield]: https://img.shields.io/github/license/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[license-url]: https://github.com/NicolasBrondin/basic-readme-template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: docs/cover.jpg
+```bash
+$ symfony server:start
+$ yarn watch
+```
