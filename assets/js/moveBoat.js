@@ -20,7 +20,7 @@ function moveBoat(action = null, url = null) {
     axios.post(url)
     .then(function (response) {
         if (response.data.message == 'success') {
-        window.location.href = "/victory";
+            window.location.href = str.replace('/map', '/victory');
         } else {
             const coordBoat = response.data.x + ',' + response.data.y;
             const coords = document.getElementsByClassName('coords');
