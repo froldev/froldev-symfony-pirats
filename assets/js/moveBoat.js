@@ -12,7 +12,7 @@ function moveBoat(action = null, url = null) {
     const latitude = document.getElementById('latitude');
 
     if (action == "url-no") {
-        let str = window.location.href
+        let str = window.location.href;
         let newUrl = str.replace('/map', '/boat/direction/'+url);
         url = newUrl;
     };
@@ -20,7 +20,8 @@ function moveBoat(action = null, url = null) {
     axios.post(url)
     .then(function (response) {
         if (response.data.message == 'success') {
-            window.location.href = str.replace('/map', '/victory');
+            let victory = window.location.href;
+            window.location.href = victory.replace('/map', '/victory');
         } else {
             const coordBoat = response.data.x + ',' + response.data.y;
             const coords = document.getElementsByClassName('coords');
