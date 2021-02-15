@@ -66,18 +66,18 @@
   }
   .sea {
     background: url("../images/sea-lg.png") no-repeat center;
-    -webkit-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: contain;
+    background-size: contain;
   }
   .port {
     background: url("../images/port-lg.png") no-repeat center;
-    -webkit-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: contain;
+    background-size: contain;
   }
   .island {
     background: url("../images/island-lg.png") no-repeat center;
-    -webkit-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: contain;
+    background-size: contain;
   }
   .navigation-infos {
     flex-direction: column;
