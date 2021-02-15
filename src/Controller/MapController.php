@@ -43,19 +43,22 @@ class MapController extends AbstractController
         MapManager $mapManager
     ): Response {
         $boat = $boatRepository->findOneBy([]);
-        $boat
-            ->setCoordX(0)
-            ->setCoordY(0);
 
-        $tile = $tileRepository->findOneBy([
-            'hasTreasure' => true,
-        ]);
-        if ($tile) {
-            $tile->setHasTreasure(false);
-        }
-        $mapManager->getRandomIsland()->setHasTreasure(true);
+        if ($boat) {
+            $boat
+                ->setCoordX(0)
+                ->setCoordY(0);
 
-        $entityManager->flush();
+            $tile = $tileRepository->findOneBy([
+                'hasTreasure' => true,
+            ]);
+            if ($tile) {
+                $tile->setHasTreasure(false);
+            }
+            $mapManager->getRandomIsland()->setHasTreasure(true);
+
+            $entityManager->flush();
+        };
 
         return $this->redirectToRoute('map');
     }
