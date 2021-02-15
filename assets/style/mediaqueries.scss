@@ -8,16 +8,19 @@
     font-size: 60px;
   }
   .sea {
-    background: url("../images/sea-md.png");
-    background-size: contain;
+    background: url("../images/sea-md.png") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
   }
   .port {
-    background: url("../images/port-md.png");
-    background-size: contain;
+    background: url("../images/port-md.png") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
   }
   .island {
-    background: url("../images/island-md.png");
-    background-size: contain;
+    background: url("../images/island-md.png") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
   }
   #boat {
     width: 50px;
@@ -62,15 +65,19 @@
     font-size: 80px;
   }
   .sea {
-    background: url("../images/sea-lg.png");
+    background: url("../images/sea-lg.png") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
   }
   .port {
-    background: url("../images/port-lg.png");
-    background-size: contain;
+    background: url("../images/port-lg.png") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
   }
   .island {
-    background: url("../images/island-lg.png");
-    background-size: contain;
+    background: url("../images/island-lg.png") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
   }
   .navigation-infos {
     flex-direction: column;

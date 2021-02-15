@@ -51,6 +51,15 @@
 				<div class="infos">
 					<h2>Informations</h2>
 					<div class="board">
+						<p>Situation :
+							{% if map[boat.coordX ][boat.coordY].type == 'island' %}
+								<span id="situation">Ile</span>
+							{% elseif map[boat.coordX ][boat.coordY].type == 'port' %}
+								<span id="situation">Port</span>
+							{% else %}
+								<span id="situation">Mer</span>
+							{% endif %}
+						</p>
 						<p>Longitude :
 							<span id="longitude">{{ boat.coordX }}</span>
 						</p>

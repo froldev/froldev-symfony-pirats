@@ -31,18 +31,21 @@
 }
 
 .sea {
-  background: url("../images/sea-sm.png") no-repeat;
-  background-size: contain;
+  background: url("../images/sea-sm.png") no-repeat center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .port {
-  background: url("../images/port-sm.png") no-repeat;
-  background-size: contain;
+  background: url("../images/port-sm.png") no-repeat center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .island {
-  background: url("../images/island-sm.png") no-repeat;
-  background-size: contain;
+  background: url("../images/island-sm.png") no-repeat center;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 @keyframes myBoat {
@@ -64,9 +67,9 @@
 }
 
 .map {
-  background-image: url("../images/map.jpg");
+  background: url("../images/map.jpg") no-repeat center;
+  -webkit-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
   padding: 1em;
 }
 
@@ -119,10 +122,9 @@
 }
 
 .compass {
-  background-image: url("../images/compass.png");
+  background: url("../images/compass.png") no-repeat center;
+  -webkit-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .compass .compass-btn {
@@ -155,10 +157,9 @@
 }
 
 .board {
-  background-image: url("../images/infos.jpg");
+  background-image: url("../images/infos.jpg") no-repeat center;
+  -webkit-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   position: relative;
 }
 .board p {

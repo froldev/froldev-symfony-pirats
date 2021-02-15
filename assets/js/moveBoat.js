@@ -7,6 +7,7 @@ function onClickMoveBoat(event) {
 // function move boat
 function moveBoat(action = null, url = null) {
     const boat = document.getElementById('boat');
+    const situation = document.getElementById('situation');
     const longitude = document.getElementById('longitude');
     const latitude = document.getElementById('latitude');
 
@@ -27,6 +28,13 @@ function moveBoat(action = null, url = null) {
                 if (tileName.textContent == coordBoat) {
                     const parent = tileName.parentElement;
                     parent.appendChild(boat);
+                    if (parent.classList.contains('port')) {
+                        situation.textContent = 'Port';
+                    } else if (parent.classList.contains('island')) {
+                        situation.textContent = 'Ile';
+                    } else {
+                        situation.textContent = 'Mer';
+                    };
                     longitude.textContent = response.data.x;
                     latitude.textContent = response.data.y;
                     return false;
