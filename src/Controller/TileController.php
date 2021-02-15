@@ -67,16 +67,4 @@ class TileController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    #[Route('/{id}', name: 'tile_delete', methods: ['DELETE'])]
-    public function delete(Request $request, Tile $tile): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$tile->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($tile);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('tile_index');
-    }
 }
