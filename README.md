@@ -1,6 +1,6 @@
 # PIRATES
 
-![](https://static.tvtropes.org/pmwiki/pub/images/potc_monocle2.jpg)
+![](https://github.com/froldev/symfony-pirats/blob/master/presentation.png)
 
 Launch your server and find the Treasure.
 
